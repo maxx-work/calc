@@ -6,5 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'calc';
+  firstNumber = 0;
+  secondNumber = 0;
+  result: any = 0;
+
+  add() {
+    this.result = this.firstNumber + this.secondNumber;
+  }
+
+  substract() {
+    this.result = this.firstNumber - this.secondNumber;
+  }
+
+  multiply() {
+    this.result = this.firstNumber * this.secondNumber;
+  }
+
+  divide() {
+    if (this.secondNumber !== 0) {
+      this.result = this.firstNumber / this.secondNumber;
+    } else {
+      alert('Dividing by 0');
+      this.result = 'Error';
+    }
+  }
 }
