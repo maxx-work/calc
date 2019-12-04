@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public calculatorResult: number|string = 0;
+
+  public receiveResult(result: number|string) {
+    this.calculatorResult = result;
+  }
 }

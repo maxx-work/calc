@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-calculator',
@@ -6,28 +6,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent {
-  firstNumber = 0;
-  secondNumber = 0;
-  result: any = 0;
+  public result: any = 0;
+  @Input() firstNumber = 0;
+  @Input() secondNumber = 0;
+  @Output() calculationPerformed = new EventEmitter<number|string>();
 
   public add() {
     this.result = this.firstNumber + this.secondNumber;
+    this.calculationPerformed.emit(this.result);
   }
 
   public substract() {
     this.result = this.firstNumber - this.secondNumber;
+    this.calculationPerformed.emit(this.result);
   }
 
   public multiply() {
     this.result = this.firstNumber * this.secondNumber;
+    this.calculationPerformed.emit(this.result);
   }
 
   public divide() {
     if (this.secondNumber !== 0) {
       this.result = this.firstNumber / this.secondNumber;
+      this.calculationPerformed.emit(this.result);
     } else {
-      alert('Dividing by 0');
       this.result = 'Error';
+      this.calculationPerformed.emit(this.result);
     }
   }
 }
