@@ -10,19 +10,19 @@ export class AppComponent {
   secondNumber = 0;
   result: any = 0;
 
-  add() {
+  public add() {
     this.result = this.firstNumber + this.secondNumber;
   }
 
-  substract() {
+  public substract() {
     this.result = this.firstNumber - this.secondNumber;
   }
 
-  multiply() {
+  public multiply() {
     this.result = this.firstNumber * this.secondNumber;
   }
 
-  divide() {
+  public divide() {
     if (this.secondNumber !== 0) {
       this.result = this.firstNumber / this.secondNumber;
     } else {
